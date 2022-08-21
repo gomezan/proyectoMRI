@@ -1,0 +1,85 @@
+<head>
+    <!--Formato de codificación para que muestre las tildes y la ñ correctamente-->
+    <meta charset="utf-8">
+    <!--El encabezado que se muestra en la pestaña-->
+    <title>Super Resolución IMR</title>
+     <!--Se conecta a Google APIs para las letras-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!--Se conecta al estilo Open Sans de Google APIs para la letra-->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
+    <!--Se conecta al estilo Merriweather de Google APIs para la letra-->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet"> 
+    <!--Se conecta al estilo Poppins de Google APIs para la letra-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <!--División donde está el botón de cerrar sesión-->
+    <div class="divisionLogout">
+        <button id="btnLogout" class="botonLogout" (click)="logout()">
+            <img id="imgLogout" class="imagenLogout" src="./../../../../assets/images/icono_logout.png">
+        </button>    
+    </div>
+    <div class="contenedor">
+        <!--División donde se pueden descargar las imágenes IRM-->
+        <div class="division">
+            <!--<h1>MIS IMÁGENES</h1>-->
+            <img id="imgDescargar" class="imagenCargar" *ngIf="!downloadSpinner" src="./../../../../assets/images/icono_descargar.png">
+            <!--https://www.angularjswiki.com/angular/creating-progress-spinner-in-angular/-->
+           <mat-progress-spinner mode="indeterminate" diameter="70" style="margin:0 auto;" *ngIf="downloadSpinner"></mat-progress-spinner>
+            <!--Indica si hay un error en la tabla de imágenes-->
+            <label id="labelIrms" for="tableIrms"><span id="errorIrms"></span></label>
+             <!--Indica si la imagen se descargó correctamente-->
+            <label id="labelIrms2" for="tableIrms"><span id="successIrms"></span></label>
+            <!--Tabla de Imagenes-->
+            <p class="mensaje_ausencia" *ngIf="imagenesDescargar.length === 0">No hay imágenes <br>registradas</p>
+            <div class="divisionTabla" *ngIf="imagenesDescargar.length > 0">
+                <table id="tableIrms" *ngIf="imagenesDescargar.length > 0">
+                    <tr>
+                        <th>IMAGEN</th>
+                        <th>COMENTARIO</th>
+                        <th>ESTADO</th>
+                    </tr>
+                    <!--Nombre y estado de la imagen-->
+                    <tr *ngFor="let imagen of  imagenesDescargar" (click)="seleccionarImagenDescarga(imagen)" class="tr_datos">
+                        <td class="td_nombre">{{imagen.nombre}}</td>
+                        <td class="td_comentario">{{imagen.observacion}}</td>
+                        <td class="td_estado">{{imagen.estado}}</td>
+                    </tr>
+                </table>
+            </div>
+             <!--Indica si la imagen no pudo ser descargada-->
+             <label id="labelDescargar" for="btnDescargar"><span id="errorDescargar"></span></label>
+            <!--Botón para comenzar la descarga-->
+            <button id="btnDescargar" class = "boton" (click)="descargarImagen()">Descargar Imagen</button>
+        </div>
+        <!--División donde se pueden cargar las imágenes IRM para procesarlas-->
+        <div class="division">
+            <!--Indica si hay un error en el input de la imagen-->
+            <label id="labelImg" for="inputImagen"><span id="errorImagen"></span></label>
+             <!--Indica si la imagen se cargó correctamente-->
+             <label id="labelCargar2" for="inputImagen"><span id="successCargar"></span></label>
+            <img id="imgCargar" class="imagenCargar" *ngIf="!uploadSpinner" src="./../../../../assets/images/icono_cargar.png">
+            <!--https://www.angularjswiki.com/angular/creating-progress-spinner-in-angular/-->
+           <mat-progress-spinner mode="indeterminate" diameter="70" style="margin:0 auto;" *ngIf="uploadSpinner"></mat-progress-spinner>
+           <!--Formulario para cargar una imagen-->
+            <form [formGroup] ="formularioCargarImagen">
+                <!--Input de archivos que permite seleccionar la imagen que se quiere cargar-->
+                <input type="file" id="inputImagen" (change)="capturarImagen($event)" name="archivo" formControlName="archivo" style="display: none" #archivo><br>
+                <!--Botón para seleccionar la imagen, redirige el evento al input de archivos-->
+                <button id="btnSeleccionar" class = "boton" (click)="archivo.click()">Seleccionar Imagen</button>
+                <p *ngIf="imagenCapturada">{{imagenCapturada.name}}</p>
+                <!--Input de una observación-->
+                <input id="inputObservacion" type="email" name="observacion" placeholder="Comentario de la imagen" formControlName="observacion" class="ingresar"><br>
+                <!--Indica si hay un error en el input de la imagen-->
+                <label id="labelObservacion" for="inputObservacion"><span id="errorObservacion"></span></label> 
+                <!--Indica si la imagen no pudo ser cargada-->
+                <label id="labelCargar" for="btnCargar"><span id="errorCargar"></span></label> 
+                <!--Botón para cargar la imagen-->
+                <button id="btnCargar" class = "boton" (click)="cargarImagen(formularioCargarImagen.get('observacion')!.value)">Cargar Imagen</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+

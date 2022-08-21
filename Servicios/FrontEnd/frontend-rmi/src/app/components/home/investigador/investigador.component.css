@@ -1,0 +1,341 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+/*-------------------BODY-------------------*/
+body{
+    /*Alinea el texto hacía el centro*/
+    text-align: center;
+    z-index: 1;   
+}
+.contenedor{
+    /*El padding evita que los elementos se peguen al borde del elemento padre*/
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+    padding-left: 3rem;
+     /*Va a colocar los elementos de manera horizontal*/
+     display: flex;
+     /*Alinea los elementos a la izquierda*/
+     justify-content: center;
+     align-items: center;
+      /*Si la imagen de fondo está en el z-index: 0, los demás elementos deben estar en una posición más adelante*/
+      z-index: 1;
+}
+/*-------------------PARRAFO-------------------*/
+p{
+  width: 80%;
+  height: fit-content;
+  margin: 0.5rem;
+  /*Estilo de letra*/
+ font-family: 'Poppins', sans-serif;
+ font-size: 15px;
+ text-align:center;
+ /*Útil a la hora de escribir parrafos, si el espacio del padre se acaba, genera un salto de linea*/
+ word-break: break-all;
+ color: black;
+ display: inline-block;
+  /*Si la imagen de fondo está en el z-index: 0, los demás elementos deben estar en una posición más adelante*/
+  z-index: 1;
+}
+
+/*-------------------DIVISION-------------------*/
+/*Las divisiones son las que contienen los elementos con los que interactua el usuario*/
+.division{
+    /*Margen de la división para alejarla del borde de la pantalla*/ 
+      margin: 0.3rem;
+      padding: 0.5rem;
+      /*Borde sólido*/
+      border: 1px solid #71f5f0;
+      /*Hace que la division se ajuste a lo que tiene por dentro*/
+      width: 50%;
+      /*Color de fondo*/
+      background-color: #71f5f0;
+       /*La opacidad permite que el elemento tenga una cierta transparencia*/
+      opacity: 0.85;
+       /*Redondea los bordes*/
+      border-radius: 5%;
+       /*Centra el texto*/
+       text-align: center;
+       /*Si la imagen de fondo está en el z-index: 0, los demás elementos deben estar en una posición más adelante*/
+       z-index: 1;
+  }
+
+  .divisionLogout{
+    /*Coloca la división hacía la derecha*/  
+    float:right;
+     /*El padding evita que los elementos se peguen al borde del elemento padre*/
+    padding-right: 3rem;
+    padding-top: 1rem;
+    /*Alinea el elemento hacía el centro*/
+    display:flex;
+    align-items: center;
+    justify-content: center;
+     /*Si la imagen de fondo está en el z-index: 0, los demás elementos deben estar en una posición más adelante*/
+     z-index: 1;
+  }
+
+/*-------------------BOTON-------------------*/
+.boton{
+    /*Estilo de letra*/
+    font-family: 'Open Sans', sans-serif;
+    font-size:25px;
+    color: black;
+     /*Color del botón*/
+    background-color: #f5db58;
+    border-color: #f5db58;
+    /*Redondear bordes*/
+    border-radius: 5%;
+     /*Tamaño del botón*/
+    width: 80%;
+    height: 4rem;
+    margin: 0.5rem;
+    /*Establece la manera como se va a ordenar el botón con respecto a los otros elementos*/
+    display: inline-block;
+     /*Si la imagen de fondo está en el z-index: 0, los demás elementos deben estar en una posición más adelante*/
+     z-index: 1;
+}
+
+/*El botón cambia de color cuando el cursor está encima de este*/
+.boton:hover{
+    background-color: #f589df;
+    border-color: #f589df;
+    color: black;
+}
+
+.botonLogout{
+    color: #a89845;
+    /*Color del botón*/
+    background-color: #a89845;
+    border-color: #a89845;
+    border: 5rem;
+    /*Redondear bordes*/
+    border-radius: 50%;
+     /*Si la imagen de fondo está en el z-index: 0, los demás elementos deben estar en una posición más adelante*/
+     z-index: 1;
+}
+
+/*El botón cambia de color cuando el cursor está encima de este*/
+.botonLogout:hover{
+    background-color: #f589df;
+    border-color: #f589df;
+}
+/*-------------------TITULOS-------------------*/
+h1{
+  /*Estilo de letra*/
+ font-family: 'Merriweather', serif;
+ font-size: 25px;
+ color: #a89845;
+ display: inline-block;
+  /*Si la imagen de fondo está en el z-index: 0, los demás elementos deben estar en una posición más adelante*/
+  z-index: 1;
+}
+
+/*Informa que la lista de imágenes está vacia*/
+.mensaje_ausencia{
+  /*Estilo de letra*/
+  font-family: 'Merriweather', serif;
+  font-size: 25px;
+  color: black;
+  display: inline-block;
+  /*Útil a la hora de escribir parrafos, si el espacio del padre se acaba, genera un salto de linea*/
+  word-break: break-all;
+   /*Si la imagen de fondo está en el z-index: 0, los demás elementos deben estar en una posición más adelante*/
+   z-index: 1;
+}
+
+/*-------------------TABLA-------------------*/
+.divisionTabla{
+  /*Es mejor manejarla con tamaño fijo*/
+  width: 520px;
+  height: 180px;
+  display: inline-block;
+  z-index: 1;
+  /*En caso de que la tabla sea más grande que la altura, se genera un scrollbar*/
+  overflow:auto;
+  background-color: #3da8a5;
+}
+
+table{
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  z-index: 1;
+  border: 1px solid #3da8a5;
+  background-color: #3da8a5;
+}
+
+th{
+  border: 1px solid #3da8a5;
+  font-family: 'Merriweather', serif;
+  font-size: 18px;
+  text-align:center;
+  color: white;
+}
+
+.td_nombre{
+  width: 250px;
+  /*Ajusta el texto para que quepa en la celda, coloca saltos de línea según sea el caso*/
+  word-break: break-all;
+  border: 1px solid #3da8a5;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  text-align:center;
+  z-index: 1;
+}
+
+.td_estado{
+  width: 150px;
+  border: 1px solid #3da8a5;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  text-align:center;
+  /*Ajusta el texto para que quepa en la celda, coloca saltos de línea según sea el caso*/
+  word-break: break-all;
+  z-index: 1;
+}
+
+.td_comentario{
+  width: 120px;
+  border: 1px solid #3da8a5;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  text-align:center;
+  /*Ajusta el texto para que quepa en la celda, coloca saltos de línea según sea el caso*/
+  word-break: break-all;
+  z-index: 1;
+}
+
+.tr_datos{
+  background-color: white;
+  z-index: 1;
+  color: black;
+}
+
+/*Ayuda al usuario a saber que imagen está seleccionando*/
+.tr_datos:hover{
+  background-color: #f589df;
+  color:  black;
+}
+/*-------------------IMÁGENES-------------------*/
+
+/*Imagen que indica el espacio donde una imagen se carga*/
+.imagenCargar{
+    /*Tamaño*/
+    width: 30%;
+    height: 20%;
+    display: inline-block;   
+     /*Si la imagen de fondo está en el z-index: 0, los demás elementos deben estar en una posición más adelante*/
+     z-index: 1;
+}
+
+/*Icono de Logout*/
+.imagenLogout{
+    /*Tamaño*/
+    width: 50px;
+    height: 50px; 
+    display: inline-block;
+    border-radius: 50%;   
+     /*Si la imagen de fondo está en el z-index: 0, los demás elementos deben estar en una posición más adelante*/
+     z-index: 1;
+}
+
+/*-------------------INGRESAR DATOS-------------------*/
+.ingresar{
+    /*Estilo de letra*/
+    font-family: 'Open Sans', sans-serif;
+    font-size:25px;
+    color: black;
+    /*Color de fondo*/
+    background-color: #71f5f0;
+    border-color: #3da8a5;
+    /*Redondear bordes*/
+    border-radius: 5%;
+    /*Tamaño del input*/
+    width: 80%;
+    height: 4rem;
+    margin: 0.5rem;
+    /*Establece la manera como se va a ordenar el botón con respecto a los otros elementos*/
+    display: inline-block;
+    /*Si la imagen de fondo está en el z-index: 0, los demás elementos deben estar en una posición más adelante*/
+    z-index: 1;
+}
+
+/*-------------------SPINNER-------------------*/
+/*
+Este elemento le indica al usuario que una imagen se está cargando o descargando
+*/
+mat-progress-spinner{
+    /*Ancho y alto*/
+    width: 57%;
+    height: 57%;
+    /*Modo de despliegue*/
+    display: inline-block;   
+    /*Si la imagen de fondo está en el z-index: 0, los demás elementos deben estar en una posición más adelante*/
+    z-index: 1;
+}
+
+:host ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {   
+    /*Color del spinner*/
+    stroke: #f589df;
+}
+
+/*------------------- ERROR -------------------*/
+/*
+Diseño del mensaje de error, tomado de: 
+https://www.tpgi.com/simple-inline-error-message-pattern/
+*/
+#errorIrms, #errorDescargar { 
+    position:absolute;
+    left: 200px;
+    display:none;
+      color:#555;
+      border-radius:5px;
+      font-family:Tahoma,Geneva,Arial,sans-serif;font-size:.8em;
+      padding:5px 5px 5px 30px;
+      margin:-4px 0px 0px 0px;
+    background:#ffecec url('./../../../../assets/images/cross.png') no-repeat 10px 50%;
+      border:2px solid #f5aca6;
+    }
+/*
+Funciona igual que el diseño anterior, pero cambia la posición de los mensajes
+*/
+ #errorImagen, #errorObservacion, #errorCargar{ 
+        position:absolute;
+        left: 660px;
+        display:none;
+          color:#555;
+          border-radius:5px;
+          font-family:Tahoma,Geneva,Arial,sans-serif;font-size:.8em;
+          padding:5px 5px 5px 30px;
+          margin:-4px 0px 0px 0px;
+        background:#ffecec url('./../../../../assets/images/cross.png') no-repeat 10px 50%;
+          border:2px solid #f5aca6;
+  }
+
+/*------------------- SUCCESS -------------------*/
+
+#successIrms { 
+  position:absolute;
+  left: 200px;
+  display:none;
+    color:#555;
+    border-radius:5px;
+    font-family:Tahoma,Geneva,Arial,sans-serif;font-size:.8em;
+    padding:5px 5px 5px 30px;
+    margin:-4px 0px 0px 0px;
+  background:#c5f7ba url('./../../../../assets/images/check.png') no-repeat 1px 5%;
+    border:2px solid #b9e967;
+  }
+
+  /*
+Funciona igual que el diseño anterior, pero cambia la posición de los mensajes
+*/
+ #successCargar{ 
+  position:absolute;
+  left: 660px;
+  display:none;
+    color:#555;
+    border-radius:5px;
+    font-family:Tahoma,Geneva,Arial,sans-serif;font-size:.8em;
+    padding:5px 5px 5px 30px;
+    margin:-4px 0px 0px 0px;
+    background:#c5f7ba url('./../../../../assets/images/check.png') no-repeat 1px 5%;
+    border:2px solid #88d109;
+  }

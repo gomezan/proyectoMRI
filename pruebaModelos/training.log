@@ -1,0 +1,11 @@
+### Began training at Wed Mar 23 20:08:44 2022 with parameters: Starting Epoch=0, Epochs=1, Batch Size=2, Training Data=800, Learning Rate=1e-05, Loss Function=l2_loss
+Patch Size is 64
+No checkpoint found! Staring from scratch!
+### Began training at Wed Mar 23 20:12:27 2022 with parameters: Starting Epoch=0, Epochs=1, Batch Size=2, Training Data=800, Learning Rate=1e-05, Loss Function=l2_loss
+Patch Size is 64
+No checkpoint found! Staring from scratch!
+Began epoch 0 at Wed Mar 23 20:12:50 2022
+### Began training at Wed Mar 23 20:19:59 2022 with parameters: Starting Epoch=0, Epochs=1, Batch Size=2, Training Data=800, Learning Rate=1e-05, Loss Function=l2_loss
+Patch Size is 64
+No checkpoint found! Staring from scratch!
+Began epoch 0 at Wed Mar 23 20:20:26 2022

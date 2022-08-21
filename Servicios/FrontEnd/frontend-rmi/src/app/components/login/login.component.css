@@ -1,0 +1,139 @@
+
+/*-------------------BODY-------------------*/
+body{
+    /*El padding evita que los elementos se peguen al borde del elemento padre*/
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+    padding-left: 4rem;
+     /*Coloca los elementos que estén dentro de este de manera horizontal*/
+     display: flex;
+     /*Alinea los elementos a la izquierda*/
+     justify-content: left;
+     align-items: left;
+     /*Si la imagen de fondo está en el z-index: 0, los demás elementos deben estar en una posición más adelante*/
+     z-index: 1;
+}
+
+/*-------------------DIVISION-------------------*/
+/*Las divisiones son las que contienen los elementos con los que interactua el usuario*/
+.division{
+    /*Margen de la división para alejarla del borde de la pantalla*/ 
+      margin: 1rem;
+      padding: 1rem;
+      /*Borde sólido*/
+      border: 1px solid #71f5f0;
+      /*Hace que la division se ajuste a lo que tiene por dentro*/
+      width: fit-content;
+      /*Color de fondo*/
+      background-color: #71f5f0;
+      /*La opacidad permite que el elemento tenga una cierta transparencia*/
+      opacity: 0.85;
+      /*Redondea los bordes*/
+      border-radius: 5%;
+      /*Centra el texto*/
+      text-align: center;
+      /*Si la imagen de fondo está en el z-index: 0, los demás elementos deben estar en una posición más adelante*/
+      z-index: 1;
+  }
+
+  .divisionLetra{
+    /*Margen de la división para alejarla del borde de la pantalla*/ 
+      margin: 1rem;
+      padding: 2rem;
+      /*Hace que la division se ajuste a lo que tiene por dentro*/
+      width: fit-content;
+     /*Centra el texto*/
+     text-align: center;
+     /*Si la imagen de fondo está en el z-index: 0, los demás elementos deben estar en una posición más adelante*/
+     z-index: 1;
+  }
+
+/*-------------------INPUT-------------------*/
+/*Es el espacio donde el usuario ingresa los datos*/
+input{
+    /*Estilo de letra*/
+    font-family: 'Open Sans', sans-serif;
+    font-size:25px;
+    color: black;
+    /*Color de fondo*/
+    background-color: #71f5f0;
+    border-color: #3da8a5;
+    /*Redondear bordes*/
+    border-radius: 5%;
+    /*Tamaño del input*/
+    width: 80%;
+    height: 4rem;
+    margin: 0.5rem;
+    /*Establece la manera como se va a ordenar el botón con respecto a los otros elementos*/
+    display: inline-block;
+    /*Si la imagen de fondo está en el z-index: 0, los demás elementos deben estar en una posición más adelante*/
+    z-index: 1;
+}
+
+/*-------------------BOTON-------------------*/
+
+.boton{
+    /*Estilo de letra*/
+    font-family: 'Open Sans', sans-serif;
+    font-size:25px;
+    color: black;
+
+    /*Color del botón*/
+    background-color: #f5db58;
+    border-color: #f5db58;
+    /*Redondear bordes*/
+    border-radius: 5%;
+    /*Tamaño del botón*/
+    width: 80%;
+    height: 4rem;
+    margin: 0.5rem;
+    /*Establece la manera como se va a ordenar el botón con respecto a los otros elementos*/
+    display: inline-block;
+    /*Si la imagen de fondo está en el z-index: 0, los demás elementos deben estar en una posición más adelante*/
+    z-index: 1;
+}
+/*El botón cambia de color cuando el cursor está encima de este*/
+.boton:hover{
+    background-color: #f589df;
+    border-color: #f589df;
+    color: black;
+     /*Si la imagen de fondo está en el z-index: 0, los demás elementos deben estar en una posición más adelante*/
+     z-index: 1;
+}
+
+/*-------------------TITULOS-------------------*/
+h1{
+     /*Estilo de letra*/
+    font-family: 'Merriweather', serif;
+    font-size: 40px;
+    color: #a89845;
+    /*Si la imagen de fondo está en el z-index: 0, los demás elementos deben estar en una posición más adelante*/
+    z-index: 1;
+}
+
+p{
+     /*Estilo de letra*/
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+    color: black;
+     /*Si la imagen de fondo está en el z-index: 0, los demás elementos deben estar en una posición más adelante*/
+     z-index: 1;
+}
+
+/*------------------- ERROR -------------------*/
+/*
+Diseño del mensaje de error, tomado de: 
+https://www.tpgi.com/simple-inline-error-message-pattern/
+*/
+#errorCorreo, #errorContrasena, #errorIniciarSesion{ position:absolute;
+    left: 230px;
+    display:none;
+      color:#555;
+      border-radius:5px;
+      font-family:Tahoma,Geneva,Arial,sans-serif;font-size:.8em;
+      padding:5px 5px 5px 30px;
+      margin:-4px 0px 0px 0px;
+    background:#ffecec url('./../../../assets/images/cross.png') no-repeat 10px 50%;
+      border:2px solid #f5aca6;
+    }
+

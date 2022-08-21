@@ -1,0 +1,56 @@
+<head>
+    <!--Formato de codificación para que muestre las tildes y la ñ correctamente-->
+    <meta charset="utf-8">
+    <!--El encabezado que se muestra en la pestaña-->
+    <title>Super Resolución IMR</title>
+     <!--Se conecta a Google APIs para las letras-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!--Se conecta al estilo Open Sans de Google APIs para la letra-->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
+    <!--Se conecta al estilo Merriweather de Google APIs para la letra-->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <!--Se conecta al estilo Poppins de Google APIs para la letra-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <!--División donde está el botón de cerrar sesión-->
+   <div class="divisionLogout">
+        <button id="btnLogout" class="botonLogout" (click)="logout()">
+            <img id="imgLogout" class="imagenLogout" src="./../../../../assets/images/icono_logout.png">
+        </button>    
+    </div>
+    <div class="contenedor">
+        <div class="division">
+            <!--División donde se gestionan los datos de un nuevo investigador-->
+            <h1>DATOS INVESTIGADOR</h1>
+            <!--Formulario de Crear Investigador-->
+            <form [formGroup] ="formularioCrearInvestigador">
+                <!--Indica si hay un error en el nombre del usuario-->
+                <label id="labelNombre" for="inputNombre"><span id="errorNombre"></span></label>
+                <!--Nombre-->
+                <input id="inputNombre" type="email" name="usuario" placeholder="Nombre de usuario" formControlName="nombre"><br>
+                <!--Indica si hay un error en el correo del usuario-->
+                <label id="labelCorreo" for="inputCorreo"><span id="errorCorreo"></span></label>
+                <!--Correo-->
+                <input id="inputCorreo" type="email" name="usuario" placeholder="Correo" formControlName="correo"><br>
+                <!--Indica si hay un error en la contraseña del usuario-->
+               <label id="labelContrasena" for="inputContrasena"><span id="errorContrasena"></span></label>
+                <!--Contraseña-->
+                <input id="inputContrasena" name="password" type = "password" placeholder="Contraseña" formControlName="contrasena">
+                <!--Confirmación de contraseña-->
+                <input id="inputConfirmacionContrasena" name="password" type = "password" placeholder="Confirmación contraseña" formControlName="confirmacion">
+                <!--Indica si hay un error en la contraseña del usuario-->
+               <label id="labelConfirmacionContrasena" for="inputConfirmacionContrasena"><span id="errorConfirmacionContrasena"></span></label>
+                
+            </form>
+        </div>
+        <!--División de los botones-->
+        <div class="division">
+            <!--Botón de guardar-->
+            <button id="btnGuardar" class = "boton" (click)="nuevoInvestigador(formularioCrearInvestigador.get('nombre')!.value,formularioCrearInvestigador.get('correo')!.value, formularioCrearInvestigador.get('contrasena')!.value, formularioCrearInvestigador.get('confirmacion')!.value)">Guardar</button>
+            <!--Botón de cancelar-->
+            <button id="btnCancelar" class = "boton" (click)="volver()">Cancelar</button>
+        </div>
+    </div>
+</body>

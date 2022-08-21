@@ -1,0 +1,54 @@
+<head>
+    <!--Formato de codificación para que muestre las tildes y la ñ correctamente-->
+    <meta charset="utf-8">
+    <!--El encabezado que se muestra en la pestaña-->
+    <title>Super Resolución IMR</title>
+     <!--Se conecta a Google APIs para las letras-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!--Se conecta al estilo Open Sans de Google APIs para la letra-->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
+    <!--Se conecta al estilo Merriweather de Google APIs para la letra-->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <!--Se conecta al estilo Poppins de Google APIs para la letra-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <!--División donde está el botón de cerrar sesión-->
+     <div class="divisionLogout">
+        <button id="btnLogout" class="botonLogout" (click)="logout()">
+            <img id="imgLogout" class="imagenLogout" src="./../../../../assets/images/icono_logout.png">
+        </button>    
+    </div>
+    <div class="contenedor">
+         <!--División donde se pueden descargar las imágenes IRM-->
+        <div class="division">
+            <h1>INVESTIGADORES</h1>
+            <!--Indica si hay un error en la tabla de investigadores-->
+            <label id="labelInvestigadores" for="tableInvestigador"><span id="errorInvestigadores"></span></label>
+            <!--Tabla de Investigadores-->
+            <p class="mensaje_ausencia" *ngIf="investigadores.length === 0">No hay investigadores <br>registrados</p>
+            <div class="divisionTabla" *ngIf="investigadores.length > 0">
+                <table id="tableInvestigador" *ngIf="investigadores.length > 0">
+                    <tr>
+                        <th>NOMBRE</th>
+                        <th>CORREO</th>
+                    </tr>
+                    <!--Nombre y correo del investigador-->
+                    <tr *ngFor="let investigador of investigadores" (click)="seleccionarInvestigador(investigador)" class="tr_datos">
+                        <td class="td_nombre">{{investigador.nombre}}</td>
+                        <td class="td_correo">{{investigador.correo}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+         <!--División donde se pueden gestionar los investigadores del sistema-->
+        <div class="division">
+            <h1>GESTIÓN</h1>
+            <!--Botón para crear un nuevo investigador-->
+            <button id="btnNuevo" class = "boton" (click)="nuevoInvestigador()">Nuevo Investigador</button>
+            <!--Botón para gestionar un investigador-->
+            <button id="btnGestionar" class = "boton" (click)="gestionarInvestigador()">Gestionar Investigador</button>
+        </div>
+    </div>
+</body>

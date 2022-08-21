@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<databaseChangeLog
+		xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+
+	<changeSet id="TESIS-1.0.0-USUARIO-01" author="santiagoromero@javeriana.edu.co" runOnChange="true">
+		<comment>creacion de tabla usuario</comment>
+		<createTable schemaName="tesis" tableName="usuario">
+			<column name="usuario_id" type="bigint" autoIncrement="true" remarks="Id del usuario">
+				<constraints primaryKey="true"/>
+			</column>
+			<column name="nombre" type="varchar(255)" remarks="nombre del usuario">
+				<constraints nullable="false"/>
+			</column>
+			<column name="correo" type="varchar(255)" remarks="correo del usuario con el que inresa al sistema">
+				<constraints nullable="false" unique="true"/>
+			</column>
+			<column name="clave" type="varchar(255)" remarks="clave con la que el usuario ingresa al sistema">
+				<constraints nullable="false"/>
+			</column>
+			<column name="administrador" type="boolean" remarks="Si tiene permisos o no de administrador"
+					defaultValue="false">
+				<constraints nullable="false"/>
+			</column>
+			<column name="fecha_creacion" type="timestamp" remarks="fecha_creacion"
+					defaultValueComputed="CURRENT_TIMESTAMP">
+				<constraints nullable="false"/>
+			</column>
+			<column name="habilitado" type="boolean" remarks="Si es habilitado para utilizar el sistema"
+					defaultValue="true">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+
+		<rollback>
+			<dropTable schemaName="tesis" tableName="usuario" cascadeConstraints="true"/>
+		</rollback>
+	</changeSet>
+
+	<changeSet id="TESIS-1.0.0-IMAGEN-02" author="santiagoromero@javeriana.edu.co" runOnChange="true">
+		<comment>creacion de tabla imagen</comment>
+		<createTable schemaName="tesis" tableName="imagen">
+			<column name="imagen_id" type="bigint" autoIncrement="true" remarks="Id de la imagen">
+				<constraints primaryKey="true"/>
+			</column>
+			<column name="usuario_id" type="bigint" remarks="usuario id llave foranea">
+				<constraints nullable="false" foreignKeyName="fk_usuario"
+							 references="usuario(usuario_id)"/>
+			</column>
+			<column name="nombre" type="varchar(255)" remarks="nombre de la imagen">
+				<constraints nullable="false"/>
+			</column>
+			<column name="observacion" type="varchar(500)" remarks="observaciones adicionales sobre la imagen">
+				<constraints nullable="true"/>
+			</column>
+			<column name="estado" type="varchar(20)" remarks="estado del proceso de la imagen" defaultValue="SUBIDO">
+				<constraints nullable="false"/>
+			</column>
+			<column name="descripcion_original" type="jsonb" remarks="descripcion de la imagen">
+				<constraints nullable="true"/>
+			</column>
+			<column name="ruta_original" type="varchar(250)" remarks="ruta donde se encuantra ubicada la imagen">
+				<constraints nullable="true"/>
+			</column>
+			<column name="fecha_inicial" type="timestamp"
+					remarks="fecha cuando se subio la imagen al servicio de almacenamiento"
+					defaultValueComputed="CURRENT_TIMESTAMP">
+				<constraints nullable="false"/>
+			</column>
+			<column name="fecha_eliminacion" type="timestamp"
+					remarks="fecha cuando se elimina la imagen del servicio de almacenamiento">
+				<constraints nullable="false"/>
+			</column>
+			<column name="descripcion_procesada" type="jsonb" remarks="descripcion de la imagen una vez procesada">
+				<constraints nullable="true"/>
+			</column>
+			<column name="ruta_procesada" type="varchar(250)" remarks="ruta donde se encuantra ubicada la imagen">
+				<constraints nullable="true"/>
+			</column>
+			<column name="fecha_procesamiento" type="timestamp" remarks="fecha cuando se procesa la imagen">
+				<constraints nullable="true"/>
+			</column>
+
+		</createTable>
+
+		<rollback>
+			<dropTable schemaName="tesis" tableName="imagen" cascadeConstraints="true"/>
+		</rollback>
+	</changeSet>
+
+</databaseChangeLog>

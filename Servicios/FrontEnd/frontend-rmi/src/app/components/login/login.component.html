@@ -1,0 +1,44 @@
+
+    <head>
+        <!--Formato de codificación para que muestre las tildes y la ñ correctamente-->
+        <meta charset="utf-8">
+        <!--El encabezado que se muestra en la pestaña-->
+        <title>Super Resolución IMR</title>
+         <!--Se conecta a Google APIs para las letras-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <!--Se conecta al estilo Open Sans de Google APIs para la letra-->
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
+        <!--Se conecta al estilo Merriweather de Google APIs para la letra-->
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet"> 
+        <!--Se conecta al estilo Poppins de Google APIs para la letra-->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet"> 
+    </head>
+    <body>
+        <!--División donde el usuario ingresa sus datos de inicio de sesión-->
+        <div class="division">
+            <!--Formulario Iniciar Sesión-->
+            <form [formGroup] ="formularioIniciarSesion">
+                <!--Indica si hay un error en el correo del usuario-->
+                <label id="labelCorreo" for="inputCorreo"><span id="errorCorreo"></span></label>
+                <!--Input Correo de usuario-->
+                <input id="inputCorreo" type="email" name="correo" placeholder="Correo de usuario" formControlName="correo"><br>
+               <!--Indica si hay un error en la contraseña del usuario-->
+               <label id="labelContrasena" for="inputContrasena"><span id="errorContrasena"></span></label>
+               <!--Input Contraseña de usuario-->
+                <input id="inputContrasena" name="password" type = "password" placeholder="Contraseña" formControlName="contrasena">
+                <!--Botón de iniciar sesión-->
+                <button id="btnIniciarSesion" type = "submit" class = "boton" (click)="login(formularioIniciarSesion.get('correo')!.value, formularioIniciarSesion.get('contrasena')!.value)">Iniciar Sesión</button>
+                <!--Indica si el usuario ingresado no existe-->
+               <label id="labelIniciarSesion" for="btnIniciarSesion"><span id="errorIniciarSesion"></span></label>
+                
+            </form>
+        </div>
+        <div class="divisionLetra">
+            <!--Título-->
+            <h1>SUPER-RESOLUCIÓN IRM</h1>
+            <!--Texto que nos da una idea de qué es lo que se hace en la Página Web-->
+            <p>¡Incrementa el tamaño de tus<br>Imágenes de Resonancia Magnética <br>para dar un diagnóstico más preciso!</p>
+        </div>
+    </body>
+
